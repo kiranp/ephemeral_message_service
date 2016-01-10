@@ -46,7 +46,7 @@ class ChatTests(APITestCase):
                "timeout": 90}
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.data['text'],
-                         ['Ensure this field has no more than 512 characters'])
+                         ['Ensure this field has no more than 512 characters.'])
 
     def test_get_message(self):
         """
