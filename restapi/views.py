@@ -111,6 +111,14 @@ def get_cache(id):
 def create_message(request):
     """
     Creates a new text message for passed in username and text.
+
+    POST /chat
+    
+    Sample json request body:
+    {"username": <text>,
+    "text": <text>,
+    "timeout": <id>}
+
     """
     try:
         serializer = ChatPOSTSerializer(data=request.data)
@@ -137,8 +145,9 @@ def create_message(request):
 @handle_api_exceptions
 def get_message(request, chat_id):
     """
-    Returns the message object for the given id. This service
-    can return both expired and unexpired messages.
+    Returns the message object for the given id. This service can return both expired and unexpired messages.
+
+    GET /chat/:id
     """
     try:
         chat_message = get_cache(chat_id)
@@ -165,8 +174,9 @@ def get_message(request, chat_id):
 @handle_api_exceptions
 def get_user_messages(request, user_name):
     """
-    Returns a list of all unexpired texts for the user with the
-    given username. Any texts that are recieved are then expired.
+    Returns a list of all unexpired texts for the user with the given username. Any texts that are recieved are then expired.
+
+    GET /chats/:username
     """
     try:
         logger.debug("Extract chat messages for user %s" % repr(user_name))
