@@ -65,7 +65,6 @@ only at first, and move it to Cold storage up on expiration. But that involves a
 keys for expiration. Inserting data into both Hot and Cold storage at the same time obviates the need for such processes
 and callbacks. Data inserted into Hot storage (Redis) is inserted with a timeout. Data inserted into Cold storage (DB)
 is inserted with an expiration date, computed from the timeout.
-
 Data in Hot storage is automatically purged after the timeout (using Redis's timeout feature).
 
 * GET /chat/:id
