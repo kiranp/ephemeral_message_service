@@ -95,12 +95,5 @@ Logging confguration is in settings.py
 
 DESIGN
 ------
-- See 
-
-
-IMPLEMENTATION SPECIFICS:
-
-
-ADDITIONAL CONSIDERATIONS:
-
+- See Design.md document.
 
