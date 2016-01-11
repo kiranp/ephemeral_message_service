@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jawflr$xjk(1%b=v4xe%#qf7=wikq_q+&x#(232nlq1c!zqjd*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -171,6 +171,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_ROOT = '/home/django/ephemeral_message_service/EphemeralMessages/static'
 STATIC_URL = '/static/'
 
 #Customization settings
