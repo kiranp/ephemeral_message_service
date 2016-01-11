@@ -92,6 +92,7 @@ LOGGING
 - A 'chat_server.log' file will be created by this service.  It will track django, db and cache related messages. 
 Logging confguration is in settings.py
 
+Note that the service uses UTC time by default.
 
 DESIGN
 ------
