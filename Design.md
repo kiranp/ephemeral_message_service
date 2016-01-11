@@ -87,9 +87,10 @@ purging the data from Hot storage.
 This API service provides a simple Web UI for posting message, and retrieving them.
 http://159.203.228.191/
 
-* User management
+* User management:
 User Model/Auth/Validation is not explored in current implementation as it is not listed as a requirement.
-Django makes it pretty easy to set it up though.
+NOTE: Username validation, case validation (in POST /chats/:username request) is not implemented in this 
+version. Django makes it pretty easy to set it up though.
 
 REST API
 ----------
