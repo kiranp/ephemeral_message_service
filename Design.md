@@ -3,7 +3,7 @@ EPHEMERAL MESSAGING SERVICE
 
 DESIGN
 ------
-This service implements a production­grade horizontally scalable REST service that implements a simple ephemeral
+This service implements a production-grade, horizontally scalable REST service that implements a simple ephemeral
 text message service.
 
 Service is implemented using Python, Django framework, Redis and Postgres.
@@ -14,14 +14,14 @@ Django encourages rapid development and clean, pragmatic design. It's a complete
 readily available (ORM, Forms, Admin, Templates), but only if you want them.
 
 The current implementation of the service focuses only on building the three APIs. However, since it deals with
-username, There might be a need to implement a user model, login and authentication services for the users.
+"username", there might be a need to implement a user model, login and authentication services for the users.
 Django makes all of these readily available for you.
 
 Django REST framework
 ---------------------
 There are a lot of third party applications and packages written for the Django framework that makes it easy to
-implement a vast variety of services. For our project, we use Django REST framework. It is a powerful and
-flexible toolkit for building Web APIs. Amongst other features, it provides:
+implement a vast variety of services. For our project, we use "Django REST framework". It is a powerful and
+flexible toolkit for building RESTful APIs. Amongst other features, it provides:
 - A web browsable API. It is a huge usability win for developers.
 - Serialization that supports both ORM and non-ORM data sources. Serializers allow complex data such as
 querysets and model instances to be converted to native Python datatypes that can then be easily rendered into
@@ -40,7 +40,7 @@ can be accessed by all the processes of the applications, possibly running on se
 Redis can replicate its activity with a master/slave mechanism in order to implement high-availability.
 
 Redis's footprint is quite small. 1 Million small Keys & String Value pairs use approximately 100MB of memory.
-Given the scale of data, Redis can run on several Extra-Large Memory instances. Occasionally shard across instances.
+Given the scale of data, Redis can be run on several Extra-Large Memory instances. Occasionally shard across instances.
 
 Basically, if you need the service to scale on several nodes sharing the same data, then something like Redis
 is a good choice for the hot storage.
@@ -80,10 +80,10 @@ Implementation:
 Service queries Hot storage for user's messages. Returns all the messages as an array of JSON objects. It also
 queries Cold storage for these messages and updates expiration date on these messages, marking them as expired.
 The service then uses Redis's "Expire" command to set the timeout for these messages in Hot storage to 0, essentially
-purging the data from Hot storage.
+purging those messages from Hot storage(Redis).
 
 
-* API UI (Bonus future)
+* API UI (Bonus future :-)
 This API service provides a simple Web UI for posting message, and retrieving them.
 http://159.203.228.191/
 
@@ -136,10 +136,10 @@ Several Python decorators are implemented/used for efficiency (cleaner and reusa
 * Test cases and error handling.
 A set of test cases are included in Django project to address a few different test scenarios. Errors are handled
 through out the code and appropriate message is displayed to the end user. Enough care has been taken in the code
-to ensure that there is no data inconsistency, by making use of exception handling.
+to ensure that there is no data inconsistency, by making use of exception handling.  Testcases are executed with "nose".
 
 * Cleaner code:
-Code has been cleaned with pyflakes and pep-8
+Code has been cleaned with "pyflakes" and "pep-8"
 
 * Deployment:
 Code is deployed at http://159.203.228.191/ in prod mode.
