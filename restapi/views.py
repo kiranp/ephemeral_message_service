@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from restapi.models import Chat
 from EphemeralMessages.settings import CHAT_THROTTLE_RATE
 from restapi.exceptions import handle_api_exceptions, EphemeralMessageError
-from restapi.serializers import (ChatPOSTSerializer,
+from restapi.serializers import (ChatPOSTSerializer, ChatGETIDSerializer, 
                                  ChatGETSerializer, ChatGETUserSerializer)
 
 logger = logging.getLogger('CHAT')
@@ -130,7 +130,8 @@ def create_message(request):
             logger.debug("Created chat message %s" % repr(chat_message))
             cache_serializer = ChatGETSerializer(chat_message)
             set_cache(chat.id, cache_serializer.data, timeout = chat.timeout)
-            return Response(serializer.data,
+            id_serializer = ChatGETIDSerializer(chat_message)
+            return Response(id_serializer.data,
                             status=status.HTTP_201_CREATED)
         else:
             logger.error("Post message is not valid %s" %

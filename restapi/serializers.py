@@ -16,6 +16,14 @@ class ChatPOSTSerializer(serializers.ModelSerializer):
         model = Chat
         fields = ('id', 'username', 'text', 'timeout', 'expiration_date')
 
+class ChatGETIDSerializer(serializers.ModelSerializer):
+    """
+    Serializer to retrieve a single Chat message and display only id
+    """
+    class Meta:
+        model = Chat
+        fields = ('id',)
+
 class ChatGETSerializer(serializers.ModelSerializer):
     """
     Serializer to retrieve a single Chat message and display only username,
